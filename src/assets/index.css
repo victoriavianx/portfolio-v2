@@ -32,9 +32,12 @@ h1,
 h2,
 h3 {
   font-family: var(--font-title);
+  color: #4d7c0f;
+  white-space: wrap;
 }
 
-p,
-li {
+p {
   font-family: var(--font-primary);
+  color: #4d7c0f;
+  white-space: wrap;
 }
