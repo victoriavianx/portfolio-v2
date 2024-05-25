@@ -1,5 +1,11 @@
-@import './base.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-primary: #ecfccb;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
