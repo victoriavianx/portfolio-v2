@@ -1,5 +1,10 @@
 <script setup lang="ts">
-const menuList = ['Início', 'Trajetória', 'Desenvolvimento']
+const menuList = [
+  'Início', // sobre mim
+  'Trajetória', // trajetória professional
+  'Desenvolvimento', // trajetória acadêmica
+  'Projetos' // projetos feitos
+]
 </script>
 
 <template>
