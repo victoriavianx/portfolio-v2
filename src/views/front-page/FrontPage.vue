@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
+import router from '@/router'
+
 import AnimatedBackground from './../../components/AnimatedBackground.vue'
 import Header from './../../components/Header.vue'
-import Opening from './Opening.vue'
+import Opening from './components/Opening.vue'
+
+const currentRoutePath = computed(() => {
+  return router.currentRoute.value.path
+})
+
+console.log(currentRoutePath.value)
 </script>
 
 <template>

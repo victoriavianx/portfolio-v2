@@ -5,8 +5,8 @@ type menuListType = { name: string; path: string }
 
 const menuList: menuListType[] = [
   { name: 'Início', path: '/' }, // sobre mim
-  { name: 'Trajetória', path: '/trajetoria' }, // trajetória professional
-  { name: 'Desenvolvimento', path: '/desenvolvimento' }, // trajetória acadêmica
+  { name: 'Experiência', path: '/experiencia' }, // trajetória professional
+  // { name: 'Desenvolvimento', path: '/desenvolvimento' }, // trajetória acadêmica
   { name: 'Projetos', path: '/projetos' } // projetos feitos
 ]
 
