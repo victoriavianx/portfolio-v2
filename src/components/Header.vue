@@ -1,10 +1,18 @@
 <script setup lang="ts">
-const menuList = [
-  'Início', // sobre mim
-  'Trajetória', // trajetória professional
-  'Desenvolvimento', // trajetória acadêmica
-  'Projetos' // projetos feitos
+import router from '@/router'
+
+type menuListType = { name: string; path: string }
+
+const menuList: menuListType[] = [
+  { name: 'Início', path: '/' }, // sobre mim
+  { name: 'Trajetória', path: '/trajetoria' }, // trajetória professional
+  { name: 'Desenvolvimento', path: '/desenvolvimento' }, // trajetória acadêmica
+  { name: 'Projetos', path: '/projetos' } // projetos feitos
 ]
+
+const navigateTo = (path: string) => {
+  router.push(path)
+}
 </script>
 
 <template>
@@ -18,11 +26,12 @@ const menuList = [
       <nav id="menu" class="text-sm my-5">
         <ul class="leading-7">
           <li
-            v-for="(listName, index) in menuList"
+            v-for="({ name, path }, index) in menuList"
             :key="index"
             class="underline-hover mb-1 cursor-pointer"
+            @click="navigateTo(path)"
           >
-            {{ listName }}
+            {{ name }}
           </li>
         </ul>
       </nav>
