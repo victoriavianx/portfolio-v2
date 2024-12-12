@@ -10,8 +10,6 @@ import Opening from './components/Opening.vue'
 const currentRoutePath = computed(() => {
   return router.currentRoute.value.path
 })
-
-console.log(currentRoutePath.value)
 </script>
 
 <template>
