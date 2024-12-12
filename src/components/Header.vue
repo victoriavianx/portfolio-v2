@@ -17,7 +17,11 @@ const menuList = [
 
       <nav id="menu" class="text-sm my-5">
         <ul class="leading-7">
-          <li v-for="(listName, index) in menuList" :key="index" class="underline-hover mb-1">
+          <li
+            v-for="(listName, index) in menuList"
+            :key="index"
+            class="underline-hover mb-1 cursor-pointer"
+          >
             {{ listName }}
           </li>
         </ul>
