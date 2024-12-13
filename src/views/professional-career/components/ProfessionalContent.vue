@@ -8,7 +8,8 @@ const professionalExperiencesList: itemList[] = [
     period: {
       start: new Date('10/1/2022')
     },
-    description: 'Lorem ipsum.',
+    description:
+      'Atuo na implementação de novas features e na correção de eventuais falhas atendendo a necessidade de cada cliente e projeto especificado para constantemente melhorar a experiência do usuário final.',
     skills: ['JavaScript', 'TypeScript', 'Vue.js', 'Nest.js']
   },
   {
