@@ -18,7 +18,8 @@ const professionalExperiencesList: itemList[] = [
       start: new Date('5/1/2022'),
       end: new Date('10/1/2022')
     },
-    description: 'Responsável por prestar assistência aos novos alunos dos primeiros módulos.',
+    description:
+      'Responsável por prestar assistência aos novos alunos dos primeiros módulos do curso. Realizando correção de atividades e acompanhamento do progresso através de reuniões semanais, além de tirar dúvidas sobre conteúdo.',
     skills: ['JavaScript', 'HTML', 'CSS', 'Python', 'Node.js', 'React']
   },
   {
@@ -29,7 +30,7 @@ const professionalExperiencesList: itemList[] = [
       end: new Date('12/1/2020')
     },
     description:
-      'Responsável em dar apoio para as Promotorias de Justiça, atuar na Coordenação Administrativa dos Fóruns de Justiça e atender o público em geral.'
+      'Responsável em dar apoio às Promotorias de Justiça, atuar na Coordenação Administrativa dos Fóruns de Justiça e atender o público em geral.'
   }
 ]
 
@@ -39,8 +40,8 @@ const formatPeriodDate = (periodDate: Date) => {
 </script>
 
 <template>
-  <div id="content" class="fixed z-10 w-full max-w-[28rem]">
-    <ul id="list" class="overflow-y-scroll max-h-72">
+  <div id="content" class="fixed z-10 w-full max-w-80 md:max-w-[28rem]">
+    <ul id="list" class="overflow-y-scroll max-h-80">
       <li
         id="item"
         v-for="(
@@ -51,30 +52,30 @@ const formatPeriodDate = (periodDate: Date) => {
       >
         <div class="flex flex-col md:flex-row">
           <div class="w-full md:max-w-48 md:pr-5">
-            <p class="text-md pt-0.5 font-light font-secondary text-end">
+            <p class="text-xs lg:text-sm pt-1 font-light font-secondary md:text-end">
               {{ formatPeriodDate(period.start) }}
               <span class="px-1">&#822;</span>
               {{ period.end ? formatPeriodDate(period.end) : 'Atualmente' }}
             </p>
           </div>
           <div class="w-full">
-            <div class="">
+            <div>
               <div class="flex flex-col">
-                <h2 class="text-lg">{{ jobPosition }},</h2>
-                <span class="text-sm font-primary tracking-tight">{{ enterprise }}</span>
+                <h2 class="text-md lg:text-lg">{{ jobPosition }},</h2>
+                <span class="text-xs lg:text-sm font-primary tracking-tight">{{ enterprise }}</span>
               </div>
-              <p class="tracking-tight pt-2">
+              <p class="text-sm lg:text-base tracking-tight pt-2">
                 {{ description }}
               </p>
             </div>
             <div v-if="skills && skills.length" class="pt-2">
-              <ul class="flex flex-row max-w-32">
+              <ul class="flex flex-wrap justify-start">
                 <li
                   v-for="(name, index) in skills"
                   :key="index"
-                  class="bg-pink py-1.5 px-2.5 rounded-3xl mr-1.5"
+                  class="bg-pink py-1.5 px-2.5 my-1 rounded-3xl mr-1.5 max-w-20"
                 >
-                  <p class="text-xs font-bold text-pink-500">
+                  <p class="text-xs text-center font-bold text-pink-500">
                     {{ name }}
                   </p>
                 </li>
