@@ -1,17 +1,31 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import router from '@/router'
 
-type menuListType = { name: string; path: string }
+type menuListType = { id: number; name: string; path: string; isSelected: boolean }
 
 const menuList: menuListType[] = [
-  { name: 'Início', path: '/' }, // sobre mim
-  { name: 'Trajetória', path: '/trajetoria' }, // trajetória professional
-  { name: 'Desenvolvimento', path: '/desenvolvimento' }, // trajetória acadêmica
-  { name: 'Projetos', path: '/projetos' } // projetos feitos
+  { id: 1, name: 'Início', path: '/', isSelected: false }, // sobre mim
+  { id: 2, name: 'Trajetória', path: '/trajetoria', isSelected: false }, // trajetória professional
+  { id: 3, name: 'Desenvolvimento', path: '/desenvolvimento', isSelected: false }, // trajetória acadêmica
+  { id: 4, name: 'Projetos', path: '/projetos', isSelected: false } // projetos feitos
 ]
 
-const navigateTo = (path: string) => {
-  router.push(path)
+const isButtonSelected = ref<boolean>(false)
+
+const navigateTo = (itemId: number) => {
+  const itemSelected = menuList.find(({ id }) => id === itemId)
+
+  if (itemSelected) {
+    itemSelected!.isSelected = true
+    isButtonSelected.value = itemSelected!.isSelected
+
+    router.push(itemSelected!.path)
+  } else {
+    itemSelected!.isSelected = false
+    isButtonSelected.value = false
+  }
 }
 </script>
 
@@ -23,15 +37,20 @@ const navigateTo = (path: string) => {
         Desenvolvedora Web Full-Stack
       </p>
 
-      <nav id="menu" class="text-sm my-5">
+      <nav id="menu" class="text-xs md:text-sm my-5">
         <ul class="leading-7">
           <li
-            v-for="({ name, path }, index) in menuList"
-            :key="index"
-            class="underline-hover mb-1 cursor-pointer"
-            @click="navigateTo(path)"
+            v-for="{ id, name, isSelected } in menuList"
+            :key="id"
+            class="cursor-pointer md:mb-1 tracking-wider"
           >
-            {{ name }}
+            <button class="flex flex-row items-center" type="button" @click="navigateTo(id)">
+              <div
+                v-if="isButtonSelected && isSelected"
+                class="bg-lime-700 max-w-2 max-h-2 p-1 rounded-xl my-2"
+              ></div>
+              <p v-else class="item-name">{{ name }}</p>
+            </button>
           </li>
         </ul>
       </nav>
@@ -46,33 +65,11 @@ const navigateTo = (path: string) => {
 }
 
 #menu {
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
 }
 
-.underline-hover {
-  padding-bottom: 0.15rem;
-  position: relative;
-}
-
-.underline-hover::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-image: linear-gradient(
-    to right,
-    var(--bg-pink-400),
-    var(--bg-tertiary),
-    var(--bg-primary)
-  );
-  transition: width 0.25s ease-out;
-}
-
-.underline-hover:hover::before {
-  width: 50%;
-  height: 2px;
-  background-color: var(--bg-pink-400);
+.item-name:hover {
+  color: var(--bg-pink-400);
+  transition: ease-in-out 0.5s;
 }
 </style>
