@@ -1,10 +1,53 @@
 <script setup lang="ts">
-const menuList = [
-  'Início', // sobre mim
-  'Trajetória', // trajetória professional
-  'Desenvolvimento', // trajetória acadêmica
-  'Projetos' // projetos feitos
-]
+import { computed, onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+
+import Icon from '@/components/Icon.vue';
+
+import router from '@/router';
+
+type menuListType = { id: number; name: string; path: string; isSelected: boolean };
+
+const route = useRoute();
+
+const menuList = ref<menuListType[]>([
+  { id: 1, name: 'Início', path: '/', isSelected: false }, // sobre mim
+  { id: 2, name: 'Experiência', path: '/experiencia', isSelected: false }, // trajetória professional
+  { id: 3, name: 'Formação', path: '/desenvolvimento', isSelected: false }, // trajetória acadêmica
+  { id: 4, name: 'Projetos', path: '/projetos', isSelected: false } // projetos feitos
+]);
+const menuItemSelected = ref<menuListType>();
+
+const currentRoute = computed(() => {
+  return route.path;
+});
+
+const navigateTo = (itemId: number) => {
+  const itemSelected = menuList.value.find(({ id }) => id === itemId);
+
+  if (!itemSelected.isSelected) {
+    itemSelected.isSelected = true;
+    menuItemSelected.value = itemSelected;
+
+    router.push(menuItemSelected.value.path);
+  }
+};
+
+onMounted(() => {
+  menuList.value.forEach((menuItem) => {
+    if (menuItem.path === currentRoute.value) {
+      menuItem.isSelected = true;
+    }
+  });
+});
+
+watch(menuItemSelected, () => {
+  menuList.value = menuList.value.map((menuItem) => {
+    return menuItem.id === menuItemSelected.value.id
+      ? menuItemSelected.value
+      : { ...menuItem, isSelected: false };
+  });
+});
 </script>
 
 <template>
@@ -15,10 +58,25 @@ const menuList = [
         Desenvolvedora Web Full-Stack
       </p>
 
-      <nav id="menu" class="text-sm my-5">
+      <nav id="menu" class="text-xs md:text-sm my-5">
         <ul class="leading-7">
-          <li v-for="(listName, index) in menuList" :key="index" class="underline-hover mb-1">
-            {{ listName }}
+          <li
+            v-for="{ id, name, isSelected } in menuList"
+            :key="id"
+            class="cursor-pointer md:my-2 tracking-wider"
+          >
+            <button class="flex flex-row items-center" type="button" @click="navigateTo(id)">
+              <Icon
+                v-if="isSelected"
+                kind="IMAGE"
+                iconName="pink-shine"
+                description="Ícone de estrela"
+                customStyle="max-w-4"
+              />
+              <p v-else class="item-name">
+                {{ name }}
+              </p>
+            </button>
           </li>
         </ul>
       </nav>
@@ -33,33 +91,11 @@ const menuList = [
 }
 
 #menu {
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
 }
 
-.underline-hover {
-  padding-bottom: 0.15rem;
-  position: relative;
-}
-
-.underline-hover::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-image: linear-gradient(
-    to right,
-    var(--bg-pink-400),
-    var(--bg-tertiary),
-    var(--bg-primary)
-  );
-  transition: width 0.25s ease-out;
-}
-
-.underline-hover:hover::before {
-  width: 50%;
-  height: 2px;
-  background-color: var(--bg-pink-400);
+.item-name:hover {
+  color: var(--bg-pink-400);
+  transition: ease-in-out 0.5s;
 }
 </style>
