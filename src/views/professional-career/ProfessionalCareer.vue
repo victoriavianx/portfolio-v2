@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AnimatedBackground from '@/components/AnimatedBackground.vue'
-import Header from '@/components/Header.vue'
+import AnimatedBackground from '@/components/AnimatedBackground.vue';
+import Header from '@/components/Header.vue';
 
-import ProfessionalContent from './components/ProfessionalContent.vue'
+import ProfessionalContent from './components/ProfessionalContent.vue';
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { itemList } from '../interfaces'
+import type { itemList } from '../interfaces';
 
 const professionalExperiencesList: itemList[] = [
   {
@@ -10,7 +10,7 @@ const professionalExperiencesList: itemList[] = [
     },
     description:
       'Atuo na implementação de novas features e na correção de eventuais falhas atendendo a necessidade de cada cliente e projeto especificado para constantemente melhorar a experiência do usuário final.',
-    skills: ['JavaScript', 'TypeScript', 'Vue.js', 'Nest.js']
+    skills: ['JavaScript', 'TypeScript', 'Vue.js', 'Nest.js', 'SQL', 'Google Cloud Platform']
   },
   {
     jobPosition: 'Peer Coach (Monitoria)',
@@ -21,7 +21,7 @@ const professionalExperiencesList: itemList[] = [
     },
     description:
       'Responsável por prestar assistência aos novos alunos dos primeiros módulos do curso. Realizando correção de atividades e acompanhamento do progresso através de reuniões semanais, além de tirar dúvidas sobre conteúdo.',
-    skills: ['JavaScript', 'HTML', 'CSS', 'Python', 'Node.js', 'React']
+    skills: ['JavaScript', 'HTML', 'CSS', 'Python', 'Node.js', 'React', 'Django']
   },
   {
     jobPosition: 'Estagiária do Ensino Médio',
@@ -33,11 +33,11 @@ const professionalExperiencesList: itemList[] = [
     description:
       'Responsável em dar apoio às Promotorias de Justiça, atuar na Coordenação Administrativa dos Fóruns de Justiça e atender o público em geral.'
   }
-]
+];
 
 const formatPeriodDate = (periodDate: Date) => {
-  return `${periodDate.getMonth() + 1}/${periodDate.getFullYear()}`
-}
+  return `${periodDate.getMonth() + 1}/${periodDate.getFullYear()}`;
+};
 </script>
 
 <template>
@@ -74,7 +74,7 @@ const formatPeriodDate = (periodDate: Date) => {
                 <li
                   v-for="(name, index) in skills"
                   :key="index"
-                  class="bg-pink py-1.5 px-2.5 my-1 rounded-3xl mr-1.5 max-w-20"
+                  class="bg-pink py-1.5 px-2.5 my-1 rounded-3xl mr-1.5"
                 >
                   <p class="text-xs text-center font-bold text-pink-500">
                     {{ name }}

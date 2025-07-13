@@ -1,10 +1,10 @@
 export interface itemList {
-  jobPosition: string
-  enterprise: string
+  jobPosition: string;
+  enterprise: string;
   period: {
-    start: Date
-    end?: Date
-  }
-  description: string
-  skills?: string[]
+    start: Date;
+    end?: Date;
+  };
+  description: string;
+  skills?: string[];
 }
