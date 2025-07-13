@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AnimatedBackground from './../../components/AnimatedBackground.vue'
-import Header from './../../components/Header.vue'
-import Opening from './Opening.vue'
+import AnimatedBackground from './../../components/AnimatedBackground.vue';
+import Header from './../../components/Header.vue';
+import Opening from './components/Opening.vue';
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 import Icon from '@/components/Icon.vue';
 
@@ -7,13 +8,19 @@ import router from '@/router';
 
 type menuListType = { id: number; name: string; path: string; isSelected: boolean };
 
+const route = useRoute();
+
 const menuList = ref<menuListType[]>([
-  { id: 1, name: 'Início', path: '/', isSelected: true }, // sobre mim
-  { id: 2, name: 'Trajetória', path: '/trajetoria', isSelected: false }, // trajetória professional
-  { id: 3, name: 'Desenvolvimento', path: '/desenvolvimento', isSelected: false }, // trajetória acadêmica
+  { id: 1, name: 'Início', path: '/', isSelected: false }, // sobre mim
+  { id: 2, name: 'Experiência', path: '/experiencia', isSelected: false }, // trajetória professional
+  { id: 3, name: 'Formação', path: '/desenvolvimento', isSelected: false }, // trajetória acadêmica
   { id: 4, name: 'Projetos', path: '/projetos', isSelected: false } // projetos feitos
 ]);
 const menuItemSelected = ref<menuListType>();
+
+const currentRoute = computed(() => {
+  return route.path;
+});
 
 const navigateTo = (itemId: number) => {
   const itemSelected = menuList.value.find(({ id }) => id === itemId);
@@ -25,6 +32,14 @@ const navigateTo = (itemId: number) => {
     router.push(menuItemSelected.value.path);
   }
 };
+
+onMounted(() => {
+  menuList.value.forEach((menuItem) => {
+    if (menuItem.path === currentRoute.value) {
+      menuItem.isSelected = true;
+    }
+  });
+});
 
 watch(menuItemSelected, () => {
   menuList.value = menuList.value.map((menuItem) => {
@@ -48,7 +63,7 @@ watch(menuItemSelected, () => {
           <li
             v-for="{ id, name, isSelected } in menuList"
             :key="id"
-            class="cursor-pointer md:mb-1 tracking-wider"
+            class="cursor-pointer md:my-2 tracking-wider"
           >
             <button class="flex flex-row items-center" type="button" @click="navigateTo(id)">
               <Icon
