@@ -1,32 +1,38 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue';
 
-import router from '@/router'
+import Icon from '@/components/Icon.vue';
 
-type menuListType = { id: number; name: string; path: string; isSelected: boolean }
+import router from '@/router';
 
-const menuList: menuListType[] = [
-  { id: 1, name: 'Início', path: '/', isSelected: false }, // sobre mim
+type menuListType = { id: number; name: string; path: string; isSelected: boolean };
+
+const menuList = ref<menuListType[]>([
+  { id: 1, name: 'Início', path: '/', isSelected: true }, // sobre mim
   { id: 2, name: 'Trajetória', path: '/trajetoria', isSelected: false }, // trajetória professional
   { id: 3, name: 'Desenvolvimento', path: '/desenvolvimento', isSelected: false }, // trajetória acadêmica
   { id: 4, name: 'Projetos', path: '/projetos', isSelected: false } // projetos feitos
-]
-
-const isButtonSelected = ref<boolean>(false)
+]);
+const menuItemSelected = ref<menuListType>();
 
 const navigateTo = (itemId: number) => {
-  const itemSelected = menuList.find(({ id }) => id === itemId)
+  const itemSelected = menuList.value.find(({ id }) => id === itemId);
 
-  if (itemSelected) {
-    itemSelected!.isSelected = true
-    isButtonSelected.value = itemSelected!.isSelected
+  if (!itemSelected.isSelected) {
+    itemSelected.isSelected = true;
+    menuItemSelected.value = itemSelected;
 
-    router.push(itemSelected!.path)
-  } else {
-    itemSelected!.isSelected = false
-    isButtonSelected.value = false
+    router.push(menuItemSelected.value.path);
   }
-}
+};
+
+watch(menuItemSelected, () => {
+  menuList.value = menuList.value.map((menuItem) => {
+    return menuItem.id === menuItemSelected.value.id
+      ? menuItemSelected.value
+      : { ...menuItem, isSelected: false };
+  });
+});
 </script>
 
 <template>
@@ -45,11 +51,16 @@ const navigateTo = (itemId: number) => {
             class="cursor-pointer md:mb-1 tracking-wider"
           >
             <button class="flex flex-row items-center" type="button" @click="navigateTo(id)">
-              <div
-                v-if="isButtonSelected && isSelected"
-                class="bg-lime-700 max-w-2 max-h-2 p-1 rounded-xl my-2"
-              ></div>
-              <p v-else class="item-name">{{ name }}</p>
+              <Icon
+                v-if="isSelected"
+                kind="IMAGE"
+                iconName="pink-shine"
+                description="Ícone de estrela"
+                customStyle="max-w-4"
+              />
+              <p v-else class="item-name">
+                {{ name }}
+              </p>
             </button>
           </li>
         </ul>
