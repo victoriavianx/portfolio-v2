@@ -42,7 +42,7 @@ const formatPeriodDate = (periodDate: Date) => {
 
 <template>
   <div id="content" class="fixed z-10 w-full max-w-64 sm:max-w-80 md:max-w-[28rem]">
-    <ul id="list" class="overflow-y-scroll max-h-80">
+    <ul id="list" class="overflow-y-scroll max-h-72">
       <li
         id="item"
         v-for="(

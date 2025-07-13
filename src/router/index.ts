@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import FrontPage from '../views/front-page/FrontPage.vue';
 import ProfessionalCareer from '@/views/professional-career/ProfessionalCareer.vue';
+import Development from '@/views/development/Development.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/experiencia',
       name: 'professional-career',
       component: ProfessionalCareer
+    },
+    {
+      path: '/desenvolvimento',
+      name: 'development',
+      component: Development
     }
   ]
 });
