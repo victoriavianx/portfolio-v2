@@ -20,7 +20,7 @@ const formatPeriodDate = (periodDate: Date) => {
 </script>
 
 <template>
-  <div id="content" class="fixed z-10 w-full max-w-64 sm:max-w-80 md:max-w-[28rem]">
+  <div id="content" class="fixed z-10 w-full max-w-64 sm:max-w-80 md:max-w-[30rem]">
     <ul id="list" class="overflow-y-scroll max-h-80">
       <li
         id="item"

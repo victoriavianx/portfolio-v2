@@ -41,7 +41,11 @@ const formatPeriodDate = (periodDate: Date) => {
   <div id="content" class="fixed z-10">
     <ul id="list" class="overflow-y-scroll max-h-80">
       <li id="item" v-for="({ project, date, link }, index) in projectsList" :key="index">
-        <a class="flex flex-col" target="_blank" :href="link">
+        <a
+          class="flex flex-col transition duration-1000 ease-in-out opacity-25 hover:opacity-100 cursor-pointer"
+          target="_blank"
+          :href="link"
+        >
           <h2 class="text-[42px] h-14 md:text-[72px] md:h-[5.5rem] text-right italic">
             {{ project }}
           </h2>
