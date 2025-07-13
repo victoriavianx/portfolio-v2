@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { developmentItemList } from '../interfaces';
 
-const professionalExperiencesList: developmentItemList[] = [
+const developmentList: developmentItemList[] = [
   {
     course: 'Desenvolvimento Web Full-Stack',
     institute: 'Kenzie Academy Brasil',
@@ -24,7 +24,7 @@ const formatPeriodDate = (periodDate: Date) => {
     <ul id="list" class="overflow-y-scroll max-h-80">
       <li
         id="item"
-        v-for="({ course, institute, period, description }, index) in professionalExperiencesList"
+        v-for="({ course, institute, period, description }, index) in developmentList"
         :key="index"
         class="py-2"
       >
