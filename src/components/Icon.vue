@@ -11,7 +11,11 @@ defineProps<{
 
 <template>
   <div :class="customStyle">
-    <img v-if="kind === 'IMAGE'" :src="`src/assets/icons/${iconName}.png`" :alt="description" />
+    <img
+      v-if="kind === 'IMAGE'"
+      :src="require(`@/assets/icons/${iconName}.png`)"
+      :alt="description"
+    />
     <span v-else class="material-symbols-outlined">{{ iconName }}</span>
   </div>
 </template>
