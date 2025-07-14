@@ -1,39 +1,68 @@
-# portfolio-v2
+## Portfólio 2
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto de portfólio pessoal desenvolvido com Vue 3, Vite e Tailwind CSS, com deploy no Netlify.
 
-## Recommended IDE Setup
+## ✅ Tecnologias
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Netlify](https://www.netlify.com/) (Deploy)
 
-## Type Support for `.vue` Imports in TS
+## 📂 Estrutura do Projeto
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+```
+├── public/          # Arquivos públicos (favicon, imagens estáticas)
+├── src/
+│   ├── assets/      # Imagens, fontes e outros assets
+│   ├── components/  # Componentes Vue
+│   ├── views/       # Páginas do site
+│   ├── router/      # Configuração das rotas
+│   ├── App.vue      # Componente principal
+│   └── main.js      # Ponto de entrada da aplicação
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
 
-## Customize configuration
+## 🚀 Como rodar localmente
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clone o repositório:
 
-## Project Setup
+```bash
+git clone https://github.com/victoriavianx/portfolio-v2.git
+cd portfolio-v2
+```
 
-```sh
+2. Instale as dependências:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Rode o projeto localmente:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Acesse: [http://localhost:3000](http://localhost:3000)
 
-```sh
-npm run build
-```
+## 🌐 Deploy
 
-### Lint with [ESLint](https://eslint.org/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a91cadc2-3a46-4dbd-b6d1-5ff58999ea47/deploy-status)](https://app.netlify.com/projects/victoriaviana/deploys)
 
-```sh
-npm run lint
-```
+O projeto está publicado no Netlify:  
+→ *[Clique aqui para acessar o app](https://victoriaviana.netlify.app/)*
+
+## ✨ Funcionalidades
+
+- Layout responsivo
+- Transições animadas entre componentes
+- Navegação por rotas com Vue Router
+- Personalização visual via Tailwind CSS
+
+<hr />
+
+#### Obrigada por chegar até aqui!
+Feito com ❤️ por [Victoria](https://github.com/victoriavianx)
