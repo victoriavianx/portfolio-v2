@@ -80,6 +80,21 @@ watch(menuItemSelected, () => {
           </li>
         </ul>
       </nav>
+
+      <div class="flex flex-col justify-left gap-y-2 font-bold">
+        <a href="https://github.com/victoriavianx" target="_blank">
+          <div class="flex flex-row text-xs lg:text-sm">
+            <p class="pr-0.5">Github</p>
+            <span class="material-symbols-outlined text-xs lg:text-sm font-bold">arrow_outward</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/victoriavianx/" target="_blank">
+          <div class="flex flex-row text-xs lg:text-sm">
+            <p class="pr-0.5">Linkedin</p>
+            <span class="material-symbols-outlined text-xs lg:text-sm font-bold">arrow_outward</span>
+          </div>
+        </a>
+      </div>
     </div>
   </header>
 </template>
