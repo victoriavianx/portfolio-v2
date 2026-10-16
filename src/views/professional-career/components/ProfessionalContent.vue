@@ -6,10 +6,11 @@ const professionalExperiencesList: itemList[] = [
     jobPosition: 'Desenvolvedora Web Full-Stack',
     enterprise: 'Espresso Labs',
     period: {
-      start: new Date('10/1/2022')
+      start: new Date('10/1/2022'),
+      end: new Date('09/1/2026')
     },
     description:
-      'Atuo na implementação de novas features e na correção de eventuais falhas atendendo a necessidade de cada cliente e projeto especificado para constantemente melhorar a experiência do usuário final.',
+      'Construção e manutenção de aplicações web utilizando NestJS no backend e Vue.js no frontend, garantindo interfaces fluidas e alta performance. Condução de demandas e tarefas do ciclo de desenvolvimento ágil por meio de ferramentas de gerenciamento, assegurando eficiência e organização de sprints. Aplicação de tecnologias modernas para suporte à codificação, otimização de performance e entrega contínua de valor ao produto.',
     skills: ['JavaScript', 'TypeScript', 'Vue.js', 'Nest.js', 'SQL', 'Google Cloud Platform']
   },
   {
@@ -20,7 +21,7 @@ const professionalExperiencesList: itemList[] = [
       end: new Date('10/1/2022')
     },
     description:
-      'Responsável por prestar assistência aos novos alunos dos primeiros módulos do curso. Realizando correção de atividades e acompanhamento do progresso através de reuniões semanais, além de tirar dúvidas sobre conteúdo.',
+      'Prestação de assistência individual e em grupo, realizando acompanhamento de progresso por meio de reuniões periódicas e alinhamento de expectativas. Esclarecimento de dúvidas, correção de atividades e suporte operacional aos novos integrantes.',
     skills: ['JavaScript', 'HTML', 'CSS', 'Python', 'Node.js', 'React', 'Django']
   },
   {
@@ -31,7 +32,7 @@ const professionalExperiencesList: itemList[] = [
       end: new Date('12/1/2020')
     },
     description:
-      'Responsável em dar apoio às Promotorias de Justiça, atuar na Coordenação Administrativa dos Fóruns de Justiça e atender o público em geral.'
+      'Suporte direto às Promotorias de Justiça e atuação na Coordenação Administrativa dos Fóruns de Justiça. Recepção e orientação ao público em geral, prestando informações com clareza e empatia. Organização de arquivos, controle de rotinas de secretaria e apoio na tramitação de expedientes.'
   }
 ];
 
