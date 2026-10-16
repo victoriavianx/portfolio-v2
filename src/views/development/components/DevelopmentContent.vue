@@ -3,6 +3,15 @@ import type { developmentItemList } from '../interfaces';
 
 const developmentList: developmentItemList[] = [
   {
+    course: 'Tecnologia em Análise e Desenvolvimento de Sistemas',
+    institute: 'Centro Universitário Internacional (Uninter)',
+    period: {
+      start: new Date('10/1/2026'),
+    },
+    description:
+      'Graduação em andamento'
+  },
+  {
     course: 'Desenvolvimento Web Full-Stack',
     institute: 'Kenzie Academy Brasil',
     period: {
